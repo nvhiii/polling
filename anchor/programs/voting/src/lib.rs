@@ -21,11 +21,50 @@ pub mod voting {
     pub fn initialize_candidate(ctx: Context<InitializeCandidate>, candidate_name: String, _poll_id: u64) -> Result<()> {
         // stuff
         let candidate = &mut ctx.accounts.candidate;
+        // also need to increment the poll amt
+        let poll = &mut ctx.accounts.poll;
+        poll.candidate_amount += 1;
+
         candidate.candidate_name = candidate_name;
         candidate.candidate_votes = 0;
-
         Ok(())
     }
+
+    // voting instruction
+    // need candidate to vote for, 
+    pub fn vote(ctx: Context<Vote>, _candidate_name: String, _poll_id: u64) -> Result<()> {
+
+        let candidate = &mut ctx.accounts.candidate;
+        candidate.candidate_votes += 1;
+        Ok(())
+
+    }
+
+}
+
+#[derive(Accounts)]
+#[instruction(candidate_name: String, poll_id: u64)]
+// since we dont need to crate account for hte voting, we just use all accounts from init candidate aside sys program
+pub struct Vote<'info> { 
+    pub signer: Signer<'info>,
+
+    // poll acc
+    // since we dont ref init, paper, space, only need seeds and bump
+    #[account(
+        // seeds
+        seeds = [poll_id.to_le_bytes().as_ref()],
+        bump,
+    )]
+    pub poll: Account<'info, Poll>,
+
+    // candidate acc
+    #[account(
+        mut, // need this to change value
+        // seeds
+        seeds = [poll_id.to_le_bytes().as_ref(), candidate_name.as_bytes()],
+        bump,
+    )]
+    pub candidate: Account<'info, Candidate>,
 
 }
 
@@ -39,6 +78,7 @@ pub struct InitializeCandidate<'info> {
     // poll acc
     // since we dont ref init, paper, space, only need seeds and bump
     #[account(
+        mut, // need this to change value
         // seeds
         seeds = [poll_id.to_le_bytes().as_ref()],
         bump,
