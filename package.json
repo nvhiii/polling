@@ -45,5 +45,6 @@
     "tailwindcss": "^3.4.1",
     "ts-jest": "^29.0.2",
     "typescript": "^5"
-  }
+  },
+  "_lastUpdated": "2025-03-04"
 }
