@@ -72,7 +72,7 @@ pnpm anchor-test
 #### Deploy to Devnet
 
 ```shell
-pnpm anchor deploy --provider.cluster devnet
+pnpm anchor deploy  --provider.cluster devnet
 ```
 
 ### web
