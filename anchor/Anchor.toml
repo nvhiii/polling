@@ -25,5 +25,5 @@ upgradeable = false
 
 [test.validator]
 bind_address = "127.0.0.1"
-ledger = ".anchor/test-ledger"
+ledger = ".anchor/test-l edger"
 rpc_port = 8899
