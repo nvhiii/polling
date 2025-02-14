@@ -89,7 +89,7 @@ pub struct InitializeCandidate<'info> {
     #[account(
         init,
         payer = signer,
-        space = 8 + Poll::INIT_SPACE,
+        space = 8  + Poll::INIT_SPACE,
         // seeds
         seeds = [poll_id.to_le_bytes().as_ref(), candidate_name.as_bytes()],
         bump,
