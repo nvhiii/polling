@@ -1,4 +1,4 @@
 /** @ty pe {import('next').NextConfig} */
-const nextConfig = {};
+co nst nextConfig = {};
 
 export default nextConfig;
