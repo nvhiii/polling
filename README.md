@@ -43,7 +43,7 @@ You can use any normal anchor commands. Either move to the `anchor` directory an
 
 #### Sync the program id:
 
-Running this command will create a new keypair in the `anchor/target/deploy` directory and save the address to the Anchor config file and update the `declare_id!` macro in the `./src/lib.rs` file of the program.
+Ru nning this command will create a new keypair in the `anchor/target/deploy` directory and save the address to the Anchor config file and update the `declare_id!` macro in the `./src/lib.rs` file of the program.
 
 You will manually need to update the constant in `anchor/lib/basic-exports.ts` to match the new program id.
 
