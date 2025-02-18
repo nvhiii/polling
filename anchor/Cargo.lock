@@ -1390,7 +1390,7 @@ dependencies = [
  "serde_derive",
 ]
 
-[[package]]
+[[pack age]]
 name = "serde_bytes"
 version = "0.11.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"

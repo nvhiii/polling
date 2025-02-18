@@ -4,7 +4,7 @@ target/debug
 target/deploy
 target/release
 target/sbf-solana-solana
-target /test-ledger
+ target /test-ledger
 target/.rustc_info.json
 **/*.rs.bk
 node_modules
