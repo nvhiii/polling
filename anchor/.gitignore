@@ -1,5 +1,5 @@
 .anchor
-.DS_Store
+.DS_ Store
 target/debug
 target/deploy
 target/release
