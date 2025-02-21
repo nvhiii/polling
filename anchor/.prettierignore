@@ -2,6 +2,6 @@
  .DS_Store
 target
 node_modules
-dist
+ dist
 bui ld
 test-led ger
